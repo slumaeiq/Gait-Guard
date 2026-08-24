@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 50%, #e0f2fe 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --primary-blue: #2563eb;
+  --secondary-blue: #3b82f6;
+  --light-blue: #eff6ff;
+  --accent-cyan: #06b6d4;
+  --accent-orange: #f97316;
+  --accent-green: #10b981;
+  --text-dark: #1e293b;
+  --text-sub: #64748b;
+  --shadow-soft: 0 10px 25px -5px rgba(37, 99, 235, 0.12), 0 8px 10px -6px rgba(37, 99, 235, 0.08);
+  --shadow-3d-btn: 0 6px 0px #1d4ed8, 0 10px 15px rgba(37, 99, 235, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background: #cbd5e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* กรอบจำลองสมาร์ทโฟนดีไซน์นุ่มนวล */
+.app-container {
+  width: 380px;
+  height: 780px;
+  background: var(--bg-gradient);
+  border-radius: 44px;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  border: 10px solid #ffffff;
+}
+
+.screen-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 18px;
+  scrollbar-width: none;
+}
+
+.screen-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Header Top Bar */
+.top-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-badge {
+  background: #dbeafe;
+  padding: 6px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* เกจ์แสดงคะแนนสุขภาพ */
+.gauge-card {
+  background: var(--card-bg);
+  border-radius: 28px;
+  padding: 20px 16px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  position: relative;
+  margin-bottom: 16px;
+  border: 2px solid #ffffff;
+}
+
+.gauge-circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: conic-gradient(from 220deg, #3b82f6 0%, #06b6d4 50%, #f59e0b 80%, #ef4444 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.gauge-inner {
+  width: 128px;
+  height: 128px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.score-num {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  color: #1e3a8a;
+}
+
+.score-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-top: 2px;
+}
+
+.status-pill {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+/* แผง Grid ปุ่มเมนูหลัก 4 ช่องในหน้าหลัก */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.menu-card-btn {
+  background: #ffffff;
+  border: 2px solid #e0f2fe;
+  border-radius: 22px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 6px 0px #bfdbfe, 0 8px 12px rgba(37, 99, 235, 0.08);
+  transition: all 0.1s ease;
+}
+
+.menu-card-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0px #bfdbfe, 0 4px 8px rgba(37, 99, 235, 0.08);
+}
+
+.menu-card-icon {
+  font-size: 28px;
+  background: #eff6ff;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.menu-card-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* ปุ่มและ Card 3D */
+.card-item {
+  background: var(--card-bg);
+  border-radius: 22px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-soft);
+  border: 2px solid #ffffff;
+}
+
+.btn-3d-main {
+  width: 100%;
+  background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-3d-btn);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.1s ease;
+}
+
+.btn-3d-main:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 0px #1d4ed8, 0 5px 10px rgba(37, 99, 235, 0.2);
+}
+
+/* แถบสไลเดอร์ปรับค่า */
+.simulator-box {
+  background: #eff6ff;
+  border: 2px dashed #93c5fd;
+  border-radius: 20px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+.simulator-box label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.score-slider {
+  width: 100%;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+/* ปุ่มย้อนกลับน่ารัก */
+.btn-back-cute {
+  background: #ffffff;
+  border: 2px solid #bfdbfe;
+  color: #1e40af;
+  border-radius: 14px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 0px #bfdbfe;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-back-cute:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0px #bfdbfe;
+}
